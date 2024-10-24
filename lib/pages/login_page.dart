@@ -1,5 +1,9 @@
-import 'package:faststyle_admin/pages/dashboard_page.dart';
+// lib/pages/login_page.dart
+import 'package:faststyle_admin/controllers/auth_controller.dart';
+import 'package:faststyle_admin/models/auth_model.dart';
+import 'package:faststyle_admin/pages/dashboard.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
@@ -32,8 +36,9 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min, // Make the column height adaptable
             children: [
-              Image.asset('assets/images/fastyle_icon.png', 
-              height: 130,
+              Image.asset(
+                'assets/images/fastyle_icon.png',
+                height: 130,
               ), // Corrected image asset path
               SizedBox(height: 20),
               Padding(
@@ -58,11 +63,32 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => DashboardPage()),
-                  );
+                onPressed: () async {
+                  final authController =
+                      Provider.of<AuthController>(context, listen: false);
+                  try {
+                    await authController.login(LoginRequest(
+                        email: _usernameController.text,
+                        password: _passwordController.text));
+                    if (authController.authResponse == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Login failed: ${authController.errorMessage}',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => DashboardPage()),
+                    );
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Login failed: $e')),
+                    );
+                  }
                 },
                 child: Text('Login'),
               ),

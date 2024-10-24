@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-//import 'package:faststyle_admin/pages/dashboard_page.dart';
-import 'package:faststyle_admin/pages/uploadimage_page.dart';
-import 'package:faststyle_admin/pages/brands_page.dart';
-import 'package:faststyle_admin/pages/subcategories_page.dart';
-import 'package:faststyle_admin/pages/categories_page.dart';
-import 'package:faststyle_admin/pages/orders_page.dart';
-import 'package:faststyle_admin/pages/users_page.dart';
 
 class AppDrawer extends StatelessWidget {
+  final Function(int) onPageSelected;
+
+  AppDrawer({required this.onPageSelected});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
@@ -30,60 +27,48 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.shopping_cart),
             title: Text('Orders'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => OrdersPage()),
-              );
+              onPageSelected(0);
+              Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.store),
             title: Text('Vendors'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => BrandsPage()),
-              );
+              onPageSelected(1);
+              Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.category),
             title: Text('Categories'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => CategoriesPage()),
-              );
+              onPageSelected(2);
+              Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.subdirectory_arrow_right),
             title: Text('Subcategories'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => SubcategoriesPage()),
-              );
+              onPageSelected(3);
+              Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.people),
             title: Text('Users'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => UsersPage()),
-              );
+              onPageSelected(4);
+              Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.upload),
             title: Text('Upload Image'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => UploadImgPage()),
-              );
+              onPageSelected(5);
+              Navigator.pop(context);
             },
           ),
         ],
