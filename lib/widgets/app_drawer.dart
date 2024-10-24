@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:faststyle_admin/pages/dashboard_page.dart';
-import 'package:faststyle_admin/pages/uploadimg_page.dart';
+//import 'package:faststyle_admin/pages/dashboard_page.dart';
+import 'package:faststyle_admin/pages/uploadimage_page.dart';
 import 'package:faststyle_admin/pages/brands_page.dart';
-import 'package:faststyle_admin/pages/settings_page.dart';
+import 'package:faststyle_admin/pages/subcategories_page.dart';
 import 'package:faststyle_admin/pages/categories_page.dart';
 import 'package:faststyle_admin/pages/orders_page.dart';
+import 'package:faststyle_admin/pages/users_page.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -26,42 +27,22 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.dashboard),
-            title: Text('Home'),
+            leading: Icon(Icons.shopping_cart),
+            title: Text('Orders'),
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => DashboardPage()),
+                MaterialPageRoute(builder: (context) => OrdersPage()),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.upload),
-            title: Text('Upload Image'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => UploadImgPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.branding_watermark),
-            title: Text('Brands'),
+            leading: Icon(Icons.store),
+            title: Text('Vendors'),
             onTap: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => BrandsPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => SettingsPage()),
               );
             },
           ),
@@ -76,12 +57,32 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.shopping_cart),
-            title: Text('Orders'),
+            leading: Icon(Icons.subdirectory_arrow_right),
+            title: Text('Subcategories'),
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => OrdersPage()),
+                MaterialPageRoute(builder: (context) => SubcategoriesPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text('Users'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => UsersPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.upload),
+            title: Text('Upload Image'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => UploadImgPage()),
               );
             },
           ),

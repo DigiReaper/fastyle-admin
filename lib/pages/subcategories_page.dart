@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:faststyle_admin/widgets/app_drawer.dart';
 
-class SettingsPage extends StatelessWidget {
+class SubcategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
