@@ -45,10 +45,27 @@ class _VendorsPageState extends State<VendorsPage> {
             itemCount: usersController.users.length,
             itemBuilder: (context, index) {
               final User user = usersController.users[index];
-              return ListTile(
-                title: Text(user.name),
-                subtitle: Text(user.email),
-                trailing: Text(user.id),
+              return Container(
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(15),
+                   boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  title: Text(user.name),
+                  subtitle: Text(user.email),
+                  trailing: Text(user.id),
+                ),
               );
             },
           );

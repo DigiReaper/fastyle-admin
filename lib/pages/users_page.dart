@@ -45,10 +45,24 @@ class _UsersPageState extends State<UsersPage> {
             itemCount: usersController.users.length,
             itemBuilder: (context, index) {
               final User user = usersController.users[index];
-              return ListTile(
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child:ListTile(
                 title: Text(user.name),
                 subtitle: Text(user.email),
-                trailing: Text(user.id),
+                ),
               );
             },
           );

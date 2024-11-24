@@ -1,3 +1,4 @@
+import 'package:faststyle_admin/pages/kyc_approvals.dart';
 import 'package:faststyle_admin/pages/orders_page.dart';
 import 'package:faststyle_admin/pages/users_page.dart';
 import 'package:faststyle_admin/pages/vendors_page.dart';
@@ -19,6 +20,7 @@ class _DashboardPageState extends State<DashboardPage> {
     OrdersPage(),
     UsersPage(),
     OrdersPage(),
+    KycApprovalsPage(),
   ];
 
   final List<String> _titles = <String>[
@@ -28,6 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     'Sub Categories',
     'Users',
     'Upload Image',
+    'KYC Approvals',
   ];
 
   void _onPageSelected(int index) {

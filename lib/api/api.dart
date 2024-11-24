@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 class Api {
-  static const String baseUrl = 'http://localhost/api/v1/';
-
+  static const String baseUrl = 'http://13.233.13.1/api/v1/';
   static final Dio dio = Dio();
   static String? token;
 

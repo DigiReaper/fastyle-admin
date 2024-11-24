@@ -71,6 +71,14 @@ class AppDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: Icon(Icons.approval),
+            title: Text('KYC Approvals'),
+            onTap: (){
+              onPageSelected(6);
+              Navigator.pop(context);
+            },
+          )
         ],
       ),
     );
